@@ -6,3 +6,5 @@ CleanCode/aircompany/LICENSE
 CleanCode/aircompany/README.md
 CleanCode/aircompany/Java/src/out
 *.class
+JavaClasses/*
+JavaFundamentals/*
