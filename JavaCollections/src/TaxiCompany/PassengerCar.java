@@ -28,11 +28,11 @@ public class PassengerCar extends Automobile {
 
     @Override
     public String toString() {
-        return "model=" + this.getModel() +
-                ", price=" + this.getPrice() +
-                ", fuelConsumptionPer100km=" + this.getFuelConsumptionPer100km() +
-                ", maxSpeed=" + this.getMaxSpeed() +
-                ", passengerCapacity=" + passengerCapacity +
-                ", passengerCarClass=" + passengerCarClass;
+        return " model=" + this.getModel() +
+                " price=" + this.getPrice() +
+                " fuelConsumptionPer100km=" + this.getFuelConsumptionPer100km() +
+                " maxSpeed=" + this.getMaxSpeed() +
+                " passengerCapacity=" + passengerCapacity +
+                " passengerCarClass=" + passengerCarClass;
     }
 }

@@ -1,0 +1,8 @@
+ model=VolkswagenPolo price=13050 fuelConsumptionPer100km=7 maxSpeed=170 passengerCapacity=4 passengerCarClass=Regular
+ model=KiaRio price=12550 fuelConsumptionPer100km=8 maxSpeed=168 passengerCapacity=4 passengerCarClass=Regular
+ model=HyundaiSolaris price=12350 fuelConsumptionPer100km=8 maxSpeed=165 passengerCapacity=4 passengerCarClass=Regular
+ model=LadaLargus price=11050 fuelConsumptionPer100km=10 maxSpeed=150 passengerCapacity=6 passengerCarClass=Economy
+ model=LadaVesta price=13050 fuelConsumptionPer100km=9 maxSpeed=160 passengerCapacity=4 passengerCarClass=Regular
+ model=SkodaRapid price=13550 fuelConsumptionPer100km=7 maxSpeed=170 passengerCapacity=4 passengerCarClass=Regular
+ model=SkodaOctavia price=15050 fuelConsumptionPer100km=8 maxSpeed=180 passengerCapacity=4 passengerCarClass=Regular
+ model=BMW530 price=40050 fuelConsumptionPer100km=11 maxSpeed=250 passengerCapacity=4 passengerCarClass=Luxury
