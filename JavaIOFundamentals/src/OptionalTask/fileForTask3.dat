@@ -1,0 +1,38 @@
+package OptionalTask;
+
+// Создать и заполнить файл случайными целыми числами. Отсортировать содержимое файла по возрастанию.
+
+import java.io.*;
+import java.util.Comparator;
+import java.util.Random;
+
+public class Task1 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        File file = new File("src\\OptionalTask\\fileForTask1.txt");
+
+        try (FileWriter fileWriter1 = new FileWriter(file);
+             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+             FileWriter fileWriter2 = new FileWriter(file)) {
+
+            for (int i = 0; i < 20; i++) {
+                int randomNumber = random.nextInt();
+                System.out.println(randomNumber);
+                fileWriter1.write(randomNumber + "\n");
+
+            }
+            fileWriter1.close();
+
+            bufferedReader.lines().sorted(Comparator.comparingInt(Integer::parseInt)).forEach(line -> {
+                try {
+                    fileWriter2.write(line);
+                    fileWriter2.write("\n");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
