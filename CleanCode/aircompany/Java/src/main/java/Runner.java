@@ -1,7 +1,7 @@
-import Planes.CargoPlane;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
+import planes.CargoPlane;
+import planes.MilitaryPlane;
+import planes.PassengerPlane;
+import planes.Plane;
 import models.MilitaryType;
 
 import java.util.Arrays;
@@ -23,9 +23,9 @@ public class Runner {
             new MilitaryPlane("F-15", 1500, 12000, 10000, MilitaryType.FIGHTER),
             new MilitaryPlane("F-22", 1550, 13000, 11000, MilitaryType.FIGHTER),
             new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT),
-            new CargoPlane("Airbus Beluga XL", 800, 15000, 200000),
-            new CargoPlane("Airbus A330 Freighter", 990, 14800, 110000),
-            new CargoPlane("Boeing-747 Freighter", 980, 16100, 100000)
+            new CargoPlane("Airbus Beluga XL", 800, 15000, 200000, true),
+            new CargoPlane("Airbus A330 Freighter", 990, 14800, 110000, false),
+            new CargoPlane("Boeing-747 Freighter", 980, 16100, 100000, false)
     );
 
     public static void main(String[] args) {
