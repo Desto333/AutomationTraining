@@ -1,26 +1,19 @@
 package port;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Pierce implements Runnable {
     private static int counter = 0;
     private final int pierceNumber = ++counter;
     private final Port port;
-    ReentrantLock reentrantLock;
-    Condition condition;
 
     public Pierce(Port port) {
         this.port = port;
-        reentrantLock = new ReentrantLock();
-        condition = reentrantLock.newCondition();
     }
 
     @Override
     public void run() {
         Thread.currentThread().setName("Pierce " + pierceNumber);
-
         while (true) {
             Ship ship;
             try {
