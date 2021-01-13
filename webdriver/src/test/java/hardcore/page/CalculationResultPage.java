@@ -48,7 +48,8 @@ public class CalculationResultPage extends AbstractPage {
         String emailAddressToSendResults = TenMinuteMailPage.EXCHANGER.exchange("");
         emailInputField.sendKeys(emailAddressToSendResults);
         sendEmailButton.click();
-        return rentCostResult.getText();
+        return rentCostResult.getText().replace("Total Estimated Cost: ", "")
+                .replace(" per 1 month", "");
     }
 
     private void waitUntilWebElementIsFoundByXpath(String xpath) {

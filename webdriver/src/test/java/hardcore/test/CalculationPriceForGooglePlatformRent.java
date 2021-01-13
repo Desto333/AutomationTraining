@@ -37,7 +37,7 @@ public class CalculationPriceForGooglePlatformRent {
     }
 
     public String calculatePriceForGooglePlatformRent() throws InterruptedException {
-        String resultPagePriceEstimate = new CloudGoogleStartPage(driver1)
+        return new CloudGoogleStartPage(driver1)
                 .openStartPage()
                 .sendSearchRequestFromStartPage("Google Cloud Platform Pricing Calculator")
                 .followTheLinkNamed("Google Cloud Platform Pricing Calculator")
@@ -52,8 +52,6 @@ public class CalculationPriceForGooglePlatformRent {
                 .setCommitedUsagePeriod()
                 .pressAddToEstimateToCalculate()
                 .getRentCostFromGooglePage();
-        return resultPagePriceEstimate.replace("Total Estimated Cost: ", "")
-                .replace(" per 1 month", "");
     }
 
     public String receiveResultToEmail() throws IOException, UnsupportedFlavorException, InterruptedException {
