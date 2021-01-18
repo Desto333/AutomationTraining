@@ -1,4 +1,4 @@
-package MainTask;
+package mainTask;
 
 import java.io.*;
 import java.nio.file.NoSuchFileException;
@@ -18,7 +18,7 @@ public class Main {
     }
 
     public static void writeDirectoryTreeViewToFile(File file) {
-        try (FileWriter fileWriter = new FileWriter("src\\MainTask\\treeView.txt")) {
+        try (FileWriter fileWriter = new FileWriter("src\\MainTask\\resources\\treeView.txt")) {
             ArrayDeque<Element> stack = new ArrayDeque<>();
             stack.add(new Element("-", file));
             while (!stack.isEmpty()) {

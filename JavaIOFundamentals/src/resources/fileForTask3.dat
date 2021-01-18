@@ -1,4 +1,4 @@
-package OptionalTask;
+package optionalTask;
 
 // Создать и заполнить файл случайными целыми числами. Отсортировать содержимое файла по возрастанию.
 
@@ -9,7 +9,7 @@ import java.util.Random;
 public class Task1 {
     public static void main(String[] args) {
         Random random = new Random();
-        File file = new File("src\\OptionalTask\\fileForTask1.txt");
+        File file = new File("src\\optionalTask\\fileForTask1.txt");
 
         try (FileWriter fileWriter1 = new FileWriter(file);
              BufferedReader bufferedReader = new BufferedReader(new FileReader(file));

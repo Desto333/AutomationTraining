@@ -1,4 +1,4 @@
-package OptionalTask;
+package optionalTask;
 
 // 2. Прочитать текст Java-программы и все слова public в объявлении атрибутов и методов класса заменить на слово private.
 
@@ -13,7 +13,7 @@ public class Task2 {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src" +
-                "\\OptionalTask\\fileForTask2.txt"))) {
+                "\\resources\\fileForTask2.txt"))) {
             while (bufferedReader.ready()) {
                 String string = bufferedReader.readLine();
                 list.add(string.replaceAll(" public ", " private "));
@@ -22,7 +22,7 @@ public class Task2 {
             e.printStackTrace();
         }
 
-        try (PrintWriter printWriter = new PrintWriter("src\\OptionalTask\\fileForTask2.txt")) {
+        try (PrintWriter printWriter = new PrintWriter("src\\resources\\fileForTask2.txt")) {
             list.forEach(printWriter::println);
         } catch (IOException e) {
             e.getMessage();

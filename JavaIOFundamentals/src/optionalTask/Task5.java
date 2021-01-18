@@ -1,4 +1,4 @@
-package OptionalTask;
+package optionalTask;
 
 // 5.     В файле, содержащем фамилии студентов и их оценки, записать прописными буквами фамилии тех студентов,
 // которые имеют средний балл более 7.
@@ -13,7 +13,7 @@ public class Task5 {
     public static void main(String[] args) {
         ArrayList<String> students = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader
-                ("src\\OptionalTask\\fileForTask5.txt"))) {
+                ("src\\resources\\fileForTask5.txt"))) {
             while (bufferedReader.ready()) {
                 String string = bufferedReader.readLine();
                 StringBuilder stringBuilder = new StringBuilder();
@@ -29,7 +29,7 @@ public class Task5 {
             e.getMessage();
         }
 
-        try (FileWriter fileWriter = new FileWriter("src\\OptionalTask\\fileForTask5.txt")) {
+        try (FileWriter fileWriter = new FileWriter("src\\resources\\fileForTask5.txt")) {
             for (String student : students) {
                 fileWriter.write(student + "\n");
             }

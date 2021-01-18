@@ -1,4 +1,4 @@
-package OptionalTask;
+package optionalTask;
 
 // Прочитать текст Java-программы и в каждом слове длиннее двух символов все строчные символы заменить прописными.
 
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Task4 {
     public static void main(String[] args) {
-        File file = new File("src\\OptionalTask\\fileForTask4.txt");
+        File file = new File("src\\resources\\fileForTask4.txt");
         ArrayList<String> list = new ArrayList<>();
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
@@ -27,7 +27,7 @@ public class Task4 {
                 stringBuilder.delete(0, stringBuilder.length() - 1);
             }
 
-            try (FileWriter fileWriter = new FileWriter("src\\OptionalTask\\fileForTask4.txt")) {
+            try (FileWriter fileWriter = new FileWriter("src\\resources\\fileForTask4.txt")) {
                 for (String line : list) {
                     fileWriter.write(line + "\n");
                 }

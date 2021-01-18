@@ -1,4 +1,4 @@
-package OptionalTask;
+package optionalTask;
 
 // 3.     Прочитать текст Java-программы и записать в другой файл в обратном порядке символы каждой строки.
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class Task3 {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src\\OptionalTask\\fileForTask3.dat"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src\\resources\\fileForTask3.dat"))) {
             while (bufferedReader.ready()) {
                 StringBuffer reverseString = new StringBuffer(bufferedReader.readLine());
                 list.add(reverseString.reverse().toString());
@@ -21,7 +21,7 @@ public class Task3 {
             e.getMessage();
         }
 
-        try (FileWriter fileWriter = new FileWriter("src\\OptionalTask\\fileForTask3.dat")) {
+        try (FileWriter fileWriter = new FileWriter("src\\resources\\fileForTask3.dat")) {
             for (String string : list) {
                 fileWriter.write(string + "\n");
             }
