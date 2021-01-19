@@ -62,9 +62,7 @@ public class Ship extends Thread {
     public void run() {
         try {
             TimeUnit.MILLISECONDS.sleep(2000);
-
             Pierce pierce = port.take();
-//            if (pierce != null) {
             System.out.println(this.getShipName() + " arrives at " + pierce.getName());
             if (this.getCargoLoaded() == 0) {
                 this.getLoaded(pierce);
@@ -77,7 +75,6 @@ public class Ship extends Thread {
             }
             System.out.println(this.getShipName() + " is leaving " + pierce.getName());
             port.add(pierce);
-//            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
