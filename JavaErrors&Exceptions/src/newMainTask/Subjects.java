@@ -1,0 +1,5 @@
+package newMainTask;
+
+public enum Subjects {
+    ECONOMICS, ENGLISH, FRENCH, WORLD_ECONOMY, MARKETING, HISTORY, PHILOSOPHY
+}
