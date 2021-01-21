@@ -1,14 +1,17 @@
 package test;
 
-import page.PasteBinHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.PasteBinHomePage;
+import page.PasteBinResultPage;
 
-public class CreateNewPasteAtPasteBinScript {
+public class CreateNewPasteAtPasteBinTest {
     private WebDriver driver;
+
 
     @BeforeMethod(alwaysRun = true)
     public void browserSetup() {
@@ -18,16 +21,18 @@ public class CreateNewPasteAtPasteBinScript {
 
     @Test
     public void createNewPasteAtPasteBin() {
-        new PasteBinHomePage(driver)
+        PasteBinResultPage resultPage = new PasteBinHomePage(driver)
                 .openPage()
-                .pasteCodeFromFile("src/test/java/code.dat")
+                .pasteCodeFromFile("src/test/resources/code.dat")
                 .setSyntaxHighLighting("Bash")
                 .setPasteExpirationTime("10 Minutes")
                 .pasteNameOrTitle("how to gain dominance among developers")
-                .submitInput()
-                .checkPageTitle("how to gain dominance among developers")
-                .checkSyntaxHighlighting("Bash")
-                .checkPastedCode("src/test/java/code.dat");
+                .submitInput();
+
+        Assert.assertEquals(resultPage.getTitle(), "how to gain dominance among developers");
+        Assert.assertEquals(resultPage.getSyntaxHighlighting(), "Bash");
+        Assert.assertEquals(resultPage.getPastedCode()
+                , resultPage.expectedCodeFromFile("src/test/resources/code.dat"));
     }
 
     @AfterMethod
