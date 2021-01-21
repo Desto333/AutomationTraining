@@ -1,11 +1,8 @@
 package page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -176,15 +173,5 @@ public class CloudGooglePricingCalculatorPage extends AbstractPage {
         addToEstimateButtons.get(0).click();
         driver.switchTo().defaultContent();
         return new CalculationResultPage(driver);
-    }
-
-    public void waitUntilWebElementIsFoundByXpath(String xpath) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(driver -> driver.findElement(By.xpath(xpath)));
-    }
-
-    public void waitUntilWebElementIsClickable(WebElement element) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.elementToBeClickable(element));
     }
 }

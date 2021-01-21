@@ -1,10 +1,8 @@
 package page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.BufferedReader;
@@ -44,54 +42,43 @@ public class CalculationResultPage extends AbstractPage {
     @FindBy(xpath = "//b[contains(text(),'Total Estimated Cost')]")
     private WebElement rentCostResult;
 
-    public CalculationResultPage checkVMClassCompliance(String expectedVMClass) {
+    public String getVMClass() {
         waitUntilWebElementIsFoundByXpath(outerIFrameXpath);
         driver.switchTo().frame(outerIFrame);
         waitUntilWebElementIsFoundByXpath(innerIFrameXpath);
         driver.switchTo().frame(innerIFrame);
         waitUntilWebElementIsFoundByXpath(vmClassResultXpath);
-        String actualVMClass = vmClassResult.getText().split("VM class: ")[1];
-        Assert.assertTrue(actualVMClass.equalsIgnoreCase(expectedVMClass));
-        return this;
+        return vmClassResult.getText().split("VM class: ")[1];
     }
 
-    public CalculationResultPage checkInstanceTypeCompliance(String expectedInstanceType) {
-        String actualInstanceType = instanceTypeResult.getText().split("Instance type: ")[1];
-        Assert.assertTrue(actualInstanceType.equalsIgnoreCase(expectedInstanceType));
-        return this;
+    public String getInstanceType() {
+        return instanceTypeResult.getText().split("Instance type: ")[1];
     }
 
-    public CalculationResultPage checkDatacenterLocationCompliance(String expectedDatacenterLocation) {
-        String actualDatacenterLocation = datacenterLocationResult.getText().split("Region: ")[1];
-        Assert.assertTrue(actualDatacenterLocation.equalsIgnoreCase(expectedDatacenterLocation));
-        return this;
+    public String getDatacenterLocation() {
+        return datacenterLocationResult.getText().split("Region: ")[1];
     }
 
-    public CalculationResultPage checkLocalSSDCompliance(String expectedLocalSSDSpace) {
-        String actualLocalSSDSpace = localSSDResult.getText().split("Total available local SSD space ")[1];
-        Assert.assertTrue(actualLocalSSDSpace.equalsIgnoreCase(expectedLocalSSDSpace));
-        return this;
+    public String getLocalSSD() {
+        return localSSDResult.getText().split("Total available local SSD space ")[1];
     }
 
-    public CalculationResultPage checkCommitmentTermCompliance(String expectedCommitmentTerm) {
-        String actualCommitmentTerm = commitmentTermResult.getText().split("Commitment term: ")[1];
-        Assert.assertTrue(actualCommitmentTerm.equalsIgnoreCase(expectedCommitmentTerm));
-        return this;
+    public String getCommitmentTerm() {
+        return commitmentTermResult.getText().split("Commitment term: ")[1];
     }
 
-    public void checkRentCostEquality() {
+    public String getAutomatedRentCost() {
+        return rentCostResult.getText();
+    }
+
+    public String getManualRentCostFromFile(String filePath) {
+        String manualRentCost = "";
         try (BufferedReader reader = new BufferedReader(
-                new FileReader("src/test/java/manualCalculationResult.txt"))) {
-            String automatedRenCost = rentCostResult.getText();
-            String manualRentCost = reader.readLine();
-            Assert.assertEquals(automatedRenCost, manualRentCost);
+                new FileReader(filePath))) {
+            manualRentCost = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void waitUntilWebElementIsFoundByXpath(String xpath) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(driver -> driver.findElement(By.xpath(xpath)));
+        return manualRentCost;
     }
 }
