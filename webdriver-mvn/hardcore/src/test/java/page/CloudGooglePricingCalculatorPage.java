@@ -174,6 +174,4 @@ public class CloudGooglePricingCalculatorPage extends AbstractPage {
         driver.switchTo().defaultContent();
         return new CalculationResultPage(driver);
     }
-
-
 }

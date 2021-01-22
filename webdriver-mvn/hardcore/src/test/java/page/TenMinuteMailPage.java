@@ -11,12 +11,10 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 
 public class TenMinuteMailPage extends AbstractPage {
     private static final String TEN_MINUTE_MAIL_URL = "https://10minutemail.com/";
-    public static final Exchanger<String> EXCHANGER = new Exchanger<>();
 
     public TenMinuteMailPage(WebDriver driver) {
         super(driver);

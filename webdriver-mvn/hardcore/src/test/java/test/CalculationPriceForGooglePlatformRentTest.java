@@ -50,5 +50,4 @@ public class CalculationPriceForGooglePlatformRentTest {
         driver.quit();
         driver = null;
     }
-
 }
