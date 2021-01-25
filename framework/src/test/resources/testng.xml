@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="GoogleCloud" verbose="1">
+    <test name="CalculationPriceForGooglePlatRentTest">
+        <classes>
+            <class name="test.CalculationPriceForGooglePlatRentTest"/>
+        </classes>
+    </test>
+</suite>
